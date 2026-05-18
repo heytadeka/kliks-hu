@@ -381,6 +381,7 @@
 
   .service-card:hover {
     border-color: rgba(100,75,255,0.35);
+    border-left-color: #ff4315;
     transform: translateY(-2px);
   }
 
@@ -1314,6 +1315,41 @@
     .orb-2 { width: 310px; height: 310px; }
     .orb-3 { width: 270px; height: 270px; }
   }
+
+  /* ── EYEBROW PILL ── */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 32px;
+    padding: 6px 14px 6px 8px;
+    border: 1px solid rgba(255,247,239,0.10);
+    background: rgba(255,247,239,0.04);
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.02em;
+  }
+  .eyebrow .live-dot {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: rgba(255,67,21,0.15);
+    display: inline-flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .eyebrow .live-dot::after {
+    content: '';
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #ff4315;
+    box-shadow: 0 0 0 0 rgba(255,67,21,0.6);
+    animation: livepulse 2.2s ease-out infinite;
+  }
+  @keyframes livepulse {
+    0%   { box-shadow: 0 0 0 0 rgba(255,67,21,0.55); }
+    70%  { box-shadow: 0 0 0 10px rgba(255,67,21,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,67,21,0); }
+  }
 </style>
 </head>
 <body>
@@ -1344,7 +1380,10 @@
   <div class="hero-glow"></div>
   <div class="hero-glow-2"></div>
 
-  <p class="hero-intro">Valószínűleg pár dolog a marketingedben fejfájást okoz, ha itt vagy.</p>
+  <div class="eyebrow fade-up delay-1">
+    <span class="live-dot"></span>
+    <span id="eyebrow-text">Ügyfeleket fogadunk júniusra — 1 hely maradt</span>
+  </div>
 
   <h1>
     Webshopoknak segítünk növekedni:<br>
@@ -1766,6 +1805,28 @@
       nav.style.background = 'rgba(14,13,26,0.85)';
     }
   });
+</script>
+
+<script>
+(function() {
+  const now = new Date();
+  const monthNames = [
+    'januárra', 'februárra', 'márciusra', 'áprilisra', 'májusra', 'júniusra',
+    'júliusra', 'augusztusra', 'szeptemberre', 'októberre', 'novemberre', 'decemberre'
+  ];
+
+  // Get next month
+  const nextMonthIndex = (now.getMonth() + 1) % 12;
+  const nextMonth = monthNames[nextMonthIndex];
+
+  // Randomly show 1 or 2 spots
+  const spots = Math.random() > 0.5 ? '1 hely maradt' : '2 hely maradt';
+
+  const eyebrow = document.getElementById('eyebrow-text');
+  if (eyebrow) {
+    eyebrow.textContent = `Ügyfeleket fogadunk ${nextMonth} — ${spots}`;
+  }
+})();
 </script>
 
 </body>
