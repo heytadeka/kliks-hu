@@ -1382,7 +1382,7 @@
 
   <div class="eyebrow fade-up delay-1">
     <span class="live-dot"></span>
-    <span id="eyebrow-text">Ügyfeleket fogadunk júniusra — 1 hely maradt</span>
+    <span id="eyebrow-text">Ügyfeleket fogadunk júniusra - 2 hely maradt</span>
   </div>
 
   <h1>
@@ -1820,11 +1820,11 @@
   const nextMonth = monthNames[nextMonthIndex];
 
   // Randomly show 1 or 2 spots
-  const spots = Math.random() > 0.5 ? '1 hely maradt' : '2 hely maradt';
+  const spots = Math.random() > 0.5 ? '2 hely maradt' : '3 hely maradt';
 
   const eyebrow = document.getElementById('eyebrow-text');
   if (eyebrow) {
-    eyebrow.textContent = `Ügyfeleket fogadunk ${nextMonth} — ${spots}`;
+    eyebrow.textContent = `Ügyfeleket fogadunk ${nextMonth} - ${spots}`;
   }
 })();
 </script>
