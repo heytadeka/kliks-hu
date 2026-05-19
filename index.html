@@ -149,15 +149,12 @@
     display: inline;
     color: var(--orange);
     font-size: 0.65em;
-    background-image: linear-gradient(var(--orange), var(--orange));
-    background-position: 0 100%;
-    background-repeat: no-repeat;
-    background-size: 0% 2px;
-    animation: underline-draw 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.5s forwards;
+    clip-path: inset(0 100% 0 0);
+    animation: reveal-ltr 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
   }
 
-  @keyframes underline-draw {
-    to { background-size: 100% 2px; }
+  @keyframes reveal-ltr {
+    to { clip-path: inset(0 0% 0 0); }
   }
 
 
