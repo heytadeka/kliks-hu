@@ -149,12 +149,15 @@
     display: inline;
     color: var(--orange);
     font-size: 0.65em;
-    clip-path: inset(0 100% 0 0);
-    animation: reveal-ltr 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+    opacity: 0;
+    filter: blur(6px);
+    animation: cinematic-reveal 2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
   }
 
-  @keyframes reveal-ltr {
-    to { clip-path: inset(0 0% 0 0); }
+  @keyframes cinematic-reveal {
+    0%   { opacity: 0; filter: blur(6px); }
+    60%  { opacity: 1; filter: blur(0px); }
+    100% { opacity: 1; filter: blur(0px); }
   }
 
 
