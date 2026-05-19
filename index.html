@@ -146,26 +146,18 @@
   }
 
   .hero-static-line {
-    display: inline-block;
-    position: relative;
+    display: inline;
     color: var(--orange);
-  }
-
-  .hero-static-line::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--orange);
-    transform: scaleX(0);
-    transform-origin: left;
+    font-size: 0.65em;
+    background-image: linear-gradient(var(--orange), var(--orange));
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
     animation: underline-draw 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.5s forwards;
   }
 
   @keyframes underline-draw {
-    to { transform: scaleX(1); }
+    to { background-size: 100% 2px; }
   }
 
 
