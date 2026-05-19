@@ -139,10 +139,33 @@
   }
 
   .hero-intro {
-    font-size: 18px;
+    font-size: 15px;
     color: rgba(255,255,255,0.5);
     margin-bottom: 28px;
     font-style: italic;
+  }
+
+  .hero-static-line {
+    display: inline-block;
+    position: relative;
+    color: var(--orange);
+  }
+
+  .hero-static-line::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--orange);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: underline-draw 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.5s forwards;
+  }
+
+  @keyframes underline-draw {
+    to { transform: scaleX(1); }
   }
 
 
@@ -1388,9 +1411,7 @@
   <h1>
     A legtöbb webshopnál<br>
     nem a forgalom a gond.<br>
-    <span class="hero-cycling-wrapper">
-      <span class="hero-cycle" id="heroCycle">Hanem hogy nincs összeállva a rendszer.</span>
-    </span>
+    <span class="hero-static-line">Hanem hogy nincs összeállva a rendszer.</span>
   </h1>
 
   <p class="hero-intro">Ezen segítünk jobb kreatívokkal, működő Shopify rendszerrel és olyan hirdetésekkel, amik tényleg konvertálnak.</p>
@@ -1764,28 +1785,6 @@
 </footer>
 
 <script>
-  // Cycling hero text
-  const cycleWords = ['Hanem hogy nincs összeállva a rendszer.'];
-  let cycleIndex = 0;
-  const cycleEl = document.getElementById('heroCycle');
-
-  function cycleNext() {
-    cycleEl.classList.add('fade-out');
-    setTimeout(() => {
-      cycleIndex = (cycleIndex + 1) % cycleWords.length;
-      cycleEl.textContent = cycleWords[cycleIndex];
-      cycleEl.classList.remove('fade-out');
-      cycleEl.classList.add('fade-in-start');
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          cycleEl.classList.remove('fade-in-start');
-        });
-      });
-    }, 420);
-  }
-
-  setInterval(cycleNext, 2200);
-
   // Fade-up intersection observer
   const fadeEls = document.querySelectorAll('.fade-up');
   const observer = new IntersectionObserver((entries) => {
