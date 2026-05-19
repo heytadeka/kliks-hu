@@ -1382,25 +1382,28 @@
 
   <div class="eyebrow fade-up delay-1">
     <span class="live-dot"></span>
-    <span id="eyebrow-text">Ügyfeleket fogadunk júniusra - 2 hely maradt</span>
+    <span id="eyebrow-text">Ausztrál és magyar webshopokkal dolgozunk</span>
   </div>
 
   <h1>
-    Webshopoknak segítünk növekedni:<br>
+    A legtöbb webshopnál<br>
+    nem a forgalom a gond.<br>
     <span class="hero-cycling-wrapper">
-      <span class="hero-cycle" id="heroCycle">hirdetésekkel</span>
+      <span class="hero-cycle" id="heroCycle">Hanem hogy nincs összeállva a rendszer.</span>
     </span>
   </h1>
 
+  <p class="hero-intro">Ezen segítünk jobb kreatívokkal, működő Shopify rendszerrel és olyan hirdetésekkel, amik tényleg konvertálnak.</p>
+
   <div class="hero-pills">
-    <span class="hero-pill">Butik ügynökség</span>
-    <span class="hero-pill hero-pill--accent">Ígérjük tanfolyamot nem fogunk árulni</span>
+    <span class="hero-pill">Saját márkáinkon is tesztelünk</span>
+    <span class="hero-pill hero-pill--accent">Alapítóval dolgozol</span>
   </div>
 
   <p class="hero-services">Hirdetések &nbsp;·&nbsp; Tartalom &nbsp;·&nbsp; Shopify</p>
 
   <div class="hero-buttons">
-    <a href="/foglalas" class="btn-primary">Ingyenes konzultáció →</a>
+    <a href="/foglalas" class="btn-primary">Nézzünk rá együtt →</a>
   </div>
 </div>
 
@@ -1762,7 +1765,7 @@
 
 <script>
   // Cycling hero text
-  const cycleWords = ['hirdetésekkel', 'jobb kreatívokkal', 'Shopify-jal'];
+  const cycleWords = ['Hanem hogy nincs összeállva a rendszer.'];
   let cycleIndex = 0;
   const cycleEl = document.getElementById('heroCycle');
 
@@ -1807,27 +1810,6 @@
   });
 </script>
 
-<script>
-(function() {
-  const now = new Date();
-  const monthNames = [
-    'januárra', 'februárra', 'márciusra', 'áprilisra', 'májusra', 'júniusra',
-    'júliusra', 'augusztusra', 'szeptemberre', 'októberre', 'novemberre', 'decemberre'
-  ];
-
-  // Get next month
-  const nextMonthIndex = (now.getMonth() + 1) % 12;
-  const nextMonth = monthNames[nextMonthIndex];
-
-  // Randomly show 1 or 2 spots
-  const spots = Math.random() > 0.5 ? '2 hely maradt' : '3 hely maradt';
-
-  const eyebrow = document.getElementById('eyebrow-text');
-  if (eyebrow) {
-    eyebrow.textContent = `Ügyfeleket fogadunk ${nextMonth} - ${spots}`;
-  }
-})();
-</script>
 
 </body>
 </html>
