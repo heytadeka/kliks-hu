@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="https://kliks.com.au/kliks-monogram-3A-solid.png">
+  <title>Adatkezelési tájékoztató – KLIKS</title>
+  <meta name="description" content="Milyen adatokat kezelünk, miért, mennyi ideig, és milyen jogaid vannak.">
+  <link rel="canonical" href="https://kliks.hu/adatvedelem">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #ff4315;
+      --purple: #644bff;
+      --bg: #0e0d1a;
+      --bg2: #1a1828;
+      --white: #ffffff;
+      --muted: rgba(255,255,255,0.62);
+      --line: rgba(255,255,255,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--white); font-family: 'Satoshi', sans-serif; font-size: 16px; line-height: 1.75; }
+    nav { position: sticky; top: 0; z-index: 10; background: rgba(14,13,26,0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav-inner { max-width: 880px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: 'Clash Display', sans-serif; font-size: 22px; font-weight: 700; color: var(--white); text-decoration: none; }
+    .logo span { color: var(--orange); }
+    .nav-back { color: var(--muted); text-decoration: none; font-size: 14px; }
+    .nav-back:hover { color: var(--white); }
+    main { max-width: 880px; margin: 0 auto; padding: 64px 24px 96px; }
+    .label { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); }
+    h1 { font-family: 'Clash Display', sans-serif; font-size: clamp(34px, 6vw, 52px); font-weight: 700; line-height: 1.12; letter-spacing: 0.01em; margin: 12px 0 16px; }
+    h2 { font-family: 'Clash Display', sans-serif; font-size: 24px; font-weight: 600; letter-spacing: 0.01em; margin: 56px 0 16px; padding-top: 24px; border-top: 1px solid var(--line); scroll-margin-top: 90px; }
+    h3 { font-size: 17px; font-weight: 700; margin: 32px 0 10px; }
+    p, li, td, th { color: var(--muted); }
+    p { margin-bottom: 14px; }
+    ul { margin: 0 0 16px 22px; }
+    li { margin-bottom: 6px; }
+    strong { color: var(--white); font-weight: 700; }
+    a { color: #a89cff; }
+    .meta { font-size: 14px; color: var(--muted); }
+    .summary { background: var(--bg2); border-left: 3px solid var(--orange); border-radius: 0; padding: 22px 26px; margin: 32px 0; }
+    .summary p:last-child { margin-bottom: 0; }
+    .toc { columns: 2; column-gap: 32px; font-size: 15px; margin: 24px 0 0 20px; }
+    .toc a { color: var(--muted); text-decoration: none; }
+    .toc a:hover { color: var(--white); }
+    .box { background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 20px 24px; margin: 16px 0 20px; }
+    .box p { margin-bottom: 6px; }
+    .box p:last-child { margin-bottom: 0; }
+    .activity { background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 8px 24px; margin: 16px 0 24px; }
+    .activity dl { display: grid; grid-template-columns: 170px 1fr; gap: 0 20px; }
+    .activity dt, .activity dd { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .activity dt { color: var(--white); font-weight: 700; }
+    .activity dd { color: var(--muted); }
+    .activity dt:last-of-type, .activity dd:last-of-type { border-bottom: none; }
+    .table-wrap { overflow-x: auto; margin: 16px 0 24px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 620px; }
+    th { text-align: left; color: var(--white); font-weight: 700; padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.18); }
+    td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .todo { background: rgba(255,67,21,0.14); color: #ff977d; padding: 1px 6px; border-radius: 4px; font-weight: 500; }
+    footer { border-top: 1px solid var(--line); padding: 32px 24px; text-align: center; font-size: 14px; color: var(--muted); }
+    footer a { color: var(--muted); }
+    @media (max-width: 640px) {
+      .toc { columns: 1; }
+      .activity dl { grid-template-columns: 1fr; }
+      .activity dt { padding-bottom: 0; border-bottom: none; }
+    }
+  </style>
+  <script src="/consent.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">KLIKS<span>.</span></a>
+    <a href="/" class="nav-back">← Vissza a főoldalra</a>
+  </div>
+</nav>
+
+<main>
+  <span class="label">Adatvédelem</span>
+  <h1>Adatkezelési tájékoztató</h1>
+  <p class="meta">Hatályos: 2026. november 10. · Verzió: 1.0</p>
+
+  <div class="summary">
+    <p><strong>Röviden:</strong> csak azokat az adatokat kérjük el, amik ahhoz kellenek, hogy válaszolni tudjunk neked, és ha együtt dolgozunk, a munkát el tudjuk végezni. Nem adjuk el őket, és nem adjuk tovább senkinek, aki ehhez nem szükséges. Hírlevelet csak akkor küldünk, ha kérted. Bármikor megkérdezheted, mit tárolunk rólad, és kérheted a törlését.</p>
+  </div>
+
+  <ol class="toc">
+    <li><a href="#adatkezelo">Ki kezeli az adataidat</a></li>
+    <li><a href="#jogszabalyok">Jogszabályi háttér</a></li>
+    <li><a href="#adatkezelesek">Milyen adatot, miért és meddig</a></li>
+    <li><a href="#meres">Mérés és hirdetés (Meta Pixel)</a></li>
+    <li><a href="#sutik">Sütik</a></li>
+    <li><a href="#adatfeldolgozok">Adatfeldolgozók</a></li>
+    <li><a href="#eu-kivul">Adattovábbítás az EU-n kívülre</a></li>
+    <li><a href="#ugyfelmunka">Ha az ügyfeleink áruházában dolgozunk</a></li>
+    <li><a href="#biztonsag">Adatbiztonság</a></li>
+    <li><a href="#jogok">A jogaid</a></li>
+    <li><a href="#jogorvoslat">Panasz és jogorvoslat</a></li>
+    <li><a href="#incidens">Adatvédelmi incidens</a></li>
+    <li><a href="#modositas">A tájékoztató módosítása</a></li>
+  </ol>
+
+  <h2 id="adatkezelo">1. Ki kezeli az adataidat</h2>
+  <div class="box">
+    <p><strong>Adatkezelő:</strong> I.Care Recruitment Kft. (a továbbiakban: KLIKS)</p>
+    <p><strong>Székhely:</strong> 4029 Debrecen, Csapó utca 50.</p>
+    <p><strong>Cégjegyzékszám:</strong> <span class="todo">[KITÖLTENDŐ]</span></p>
+    <p><strong>Adószám:</strong> <span class="todo">[KITÖLTENDŐ]</span></p>
+    <p><strong>Képviselő:</strong> <span class="todo">[KITÖLTENDŐ]</span></p>
+    <p><strong>Adatvédelmi kérdésekben:</strong> <a href="mailto:adatvedelem@kliks.hu">adatvedelem@kliks.hu</a></p>
+    <p><strong>Weboldal:</strong> https://kliks.hu</p>
+  </div>
+  <p>Adatvédelmi tisztviselő kinevezésére nem vagyunk kötelesek, mert nem végzünk nagy számban vagy rendszeresen különleges adatokat érintő, illetve nagymértékű, rendszeres megfigyelést igénylő adatkezelést (GDPR 37. cikk). Minden adatvédelmi kérdést az alapító, Nagy Ádám kezel személyesen.</p>
+
+  <h2 id="jogszabalyok">2. Jogszabályi háttér</h2>
+  <ul>
+    <li>Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR)</li>
+    <li>2011. évi CXII. törvény az információs önrendelkezési jogról és az információszabadságról (Infotv.)</li>
+    <li>2001. évi CVIII. törvény az elektronikus kereskedelmi szolgáltatásokról (Ekertv.)</li>
+    <li>2008. évi XLVIII. törvény a gazdasági reklámtevékenységről (Grt.)</li>
+    <li>2000. évi C. törvény a számvitelről (Számv. tv.)</li>
+    <li>2013. évi V. törvény a Polgári Törvénykönyvről (Ptk.)</li>
+  </ul>
+
+  <h2 id="adatkezelesek">3. Milyen adatot, miért és meddig</h2>
+  <p>Minden adatkezelésnél ugyanazt mutatjuk meg: mi a célja, milyen adatról van szó, mi a jogalapja, meddig tartjuk meg, és ki fér hozzá.</p>
+
+  <h3>3.1 Kapcsolatfelvételi űrlap</h3>
+  <div class="activity"><dl>
+    <dt>Cél</dt><dd>Válaszolni a megkeresésedre, és előkészíteni egy esetleges közös munkát (például az ingyenes auditot).</dd>
+    <dt>Adatok</dt><dd>Név, email cím, telefonszám (nem kötelező), webshop címe (nem kötelező), havi hirdetési költés sávja, az üzenetben leírtak.</dd>
+    <dt>Jogalap</dt><dd>A te kérésedre, szerződéskötést megelőzően tett lépések (GDPR 6. cikk (1) b)).</dd>
+    <dt>Megőrzés</dt><dd>Ha nem lesz belőle együttműködés, az utolsó kapcsolatfelvételtől számított 1 évig. Ha lesz, a 3.4 pont szerint. Az 1 évnél régebbi beküldéseket a Web3Forms rendszeréből is töröljük.</dd>
+    <dt>Ki fér hozzá</dt><dd>A KLIKS, valamint a Web3Forms (az űrlap továbbítása emailben) és a Klaviyo (ügyfélkapcsolati nyilvántartás) mint adatfeldolgozó.</dd>
+  </dl></div>
+
+  <h3>3.2 Hírlevél</h3>
+  <div class="activity"><dl>
+    <dt>Cél</dt><dd>Marketing tartalmak és ajánlatok küldése emailben.</dd>
+    <dt>Adatok</dt><dd>Név, email cím, a feliratkozás ideje és forrása, a levelek megnyitására és a linkekre kattintásra vonatkozó adatok.</dd>
+    <dt>Jogalap</dt><dd>A hozzájárulásod (GDPR 6. cikk (1) a), Grt. 6. §). Csak akkor iratkozol fel, ha ezt külön bejelölöd.</dd>
+    <dt>Megőrzés</dt><dd>Amíg le nem iratkozol. Minden levél alján egy kattintással megteheted.</dd>
+    <dt>Ki fér hozzá</dt><dd>A KLIKS és a Klaviyo mint adatfeldolgozó.</dd>
+  </dl></div>
+
+  <h3>3.3 Időpontfoglalás</h3>
+  <div class="activity"><dl>
+    <dt>Cél</dt><dd>A /foglalas oldalon lefoglalt online beszélgetés megszervezése és a meghívó elküldése.</dd>
+    <dt>Adatok</dt><dd>Név, email cím, a választott időpont, és amit a foglaláskor megadsz.</dd>
+    <dt>Jogalap</dt><dd>A te kérésedre, szerződéskötést megelőzően tett lépések (GDPR 6. cikk (1) b)).</dd>
+    <dt>Megőrzés</dt><dd>Ha nem lesz belőle együttműködés, a beszélgetéstől számított 1 évig.</dd>
+    <dt>Ki fér hozzá</dt><dd>A KLIKS és a Cal.com (Cal.eu) mint adatfeldolgozó.</dd>
+  </dl></div>
+
+  <h3>3.4 Ügyfeleink kapcsolattartói</h3>
+  <div class="activity"><dl>
+    <dt>Cél</dt><dd>A megbízás teljesítése, a kapcsolattartás az ügyfél cégével.</dd>
+    <dt>Adatok</dt><dd>A kapcsolattartó neve, email címe, telefonszáma, beosztása, és a közös munka során váltott üzenetek.</dd>
+    <dt>Jogalap</dt><dd>Ha te magad vagy a szerződő fél (például egyéni vállalkozóként), a szerződés teljesítése (GDPR 6. cikk (1) b)). Ha egy cég kapcsolattartója vagy, a KLIKS és az ügyfél jogos érdeke a kapcsolattartáshoz (GDPR 6. cikk (1) f)).</dd>
+    <dt>Megőrzés</dt><dd>A szerződés megszűnésétől számított 5 évig, a polgári jogi igények általános elévülési ideje miatt (Ptk. 6:22. §).</dd>
+    <dt>Ki fér hozzá</dt><dd>A KLIKS, valamint a levelezéshez és a munkához használt szolgáltatók (lásd 6. pont).</dd>
+  </dl></div>
+
+  <h3>3.5 Számlázás</h3>
+  <div class="activity"><dl>
+    <dt>Cél</dt><dd>Számla kiállítása és megőrzése.</dd>
+    <dt>Adatok</dt><dd>Név vagy cégnév, számlázási cím, adószám, a teljesítés adatai.</dd>
+    <dt>Jogalap</dt><dd>Jogi kötelezettség teljesítése (GDPR 6. cikk (1) c), Számv. tv. 169. §).</dd>
+    <dt>Megőrzés</dt><dd>8 év.</dd>
+    <dt>Ki fér hozzá</dt><dd>A KLIKS, a könyvelőnk és a Számlázz.hu (KBOSS.hu Kft.) mint adatfeldolgozó.</dd>
+  </dl></div>
+
+  <h3>3.6 A weboldal technikai naplói</h3>
+  <div class="activity"><dl>
+    <dt>Cél</dt><dd>A weboldal biztonságos és hibamentes működése.</dd>
+    <dt>Adatok</dt><dd>IP-cím, a böngésző és az eszköz típusa, a megnyitott oldal, az időpont.</dd>
+    <dt>Jogalap</dt><dd>Jogos érdek a weboldal biztonságos üzemeltetéséhez (GDPR 6. cikk (1) f)).</dd>
+    <dt>Megőrzés</dt><dd>A tárhelyszolgáltató (Vercel) naplózási ideje szerint, jellemzően néhány nap.</dd>
+    <dt>Ki fér hozzá</dt><dd>A Vercel mint adatfeldolgozó. Az oldal betűtípusai és képei külső szolgáltatóktól töltődnek be (Fontshare, Google Fonts, Cloudinary, Shopify), ezért ők is megkapják az IP-címedet.</dd>
+  </dl></div>
+
+  <h3>3.7 Közösségi oldalaink</h3>
+  <p>Az Instagram és a TikTok oldalainkon a platform szabályai szerint kezeljük a hozzászólásokat és üzeneteket. Ezekért az adatkezelésekért a platformokkal közösen felelünk (GDPR 26. cikk). A platformok saját tájékoztatói: <a href="https://privacycenter.instagram.com/policy" target="_blank" rel="noopener">Instagram</a>, <a href="https://www.tiktok.com/legal/privacy-policy-eea" target="_blank" rel="noopener">TikTok</a>.</p>
+
+  <h2 id="meres">4. Mérés és hirdetés (Meta Pixel)</h2>
+  <p>A weboldalon a Meta Pixel segítségével mérjük, hogy a hirdetéseinkből hányan látogatnak el hozzánk, és hányan írnak nekünk. Ez alapján tudjuk javítani a hirdetéseinket, és megjeleníteni őket azoknak, akik már jártak nálunk.</p>
+  <div class="activity"><dl>
+    <dt>Adatok</dt><dd>A meglátogatott oldalak, a kattintások, az eszköz és a böngésző adatai, az IP-cím és a Meta sütijei.</dd>
+    <dt>Jogalap</dt><dd>A hozzájárulásod, amit a süti beállításoknál adhatsz meg vagy vonhatsz vissza (GDPR 6. cikk (1) a), Ekertv. 13/A. §).</dd>
+    <dt>Felelősség</dt><dd>Az adatok gyűjtéséért és a Metának való továbbításáért a KLIKS és a Meta Platforms Ireland Ltd. közösen felel (GDPR 26. cikk). A további feldolgozásért a Meta önállóan felel.</dd>
+    <dt>Megőrzés</dt><dd>A Meta sütijei legfeljebb 90 napig maradnak a böngésződben.</dd>
+  </dl></div>
+
+  <h2 id="sutik">5. Sütik</h2>
+  <p>A weboldal működéséhez szükséges sütik a jogos érdekünk alapján működnek. Mérési és marketing sütit csak akkor használunk, ha ehhez hozzájárulsz. Az oldal első megnyitásakor egy sávban dönthetsz róla, és a döntésedet bármikor megváltoztathatod az oldal alján lévő „Süti beállítások” linkkel.</p>
+  <div class="table-wrap"><table>
+    <tr><th>Név</th><th>Mire való</th><th>Típus</th><th>Meddig marad</th></tr>
+    <tr><td>kliks_consent</td><td>Megjegyzi, hogy elfogadtad vagy elutasítottad a mérést. A böngésződben tároljuk, nem küldjük el sehova.</td><td>Szükséges</td><td>Amíg nem törlöd</td></tr>
+    <tr><td>_fbp, _fbc</td><td>A Meta Pixel sütijei: a hirdetések mérése és a remarketing.</td><td>Marketing, csak hozzájárulással</td><td>90 nap</td></tr>
+  </table></div>
+
+  <h2 id="adatfeldolgozok">6. Adatfeldolgozók</h2>
+  <p>Ezek a szolgáltatók a megbízásunkból, az utasításaink szerint kezelnek adatot. Mindegyikkel adatfeldolgozási szerződésünk van, vagy a szolgáltatási feltételeik tartalmazzák a GDPR 28. cikke szerinti rendelkezéseket.</p>
+  <div class="table-wrap"><table>
+    <tr><th>Szolgáltató</th><th>Feladat</th><th>Hol tárolja az adatot</th></tr>
+    <tr><td>Vercel Inc.</td><td>A weboldal tárhelye</td><td>USA, EU</td></tr>
+    <tr><td>Web3Creative (Web3Forms), India</td><td>A kapcsolatfelvételi űrlap továbbítása emailben</td><td>Több régió (AWS, Cloudflare, Hetzner)</td></tr>
+    <tr><td>Klaviyo, Inc.</td><td>Ügyfélkapcsolati nyilvántartás és hírlevél</td><td>USA</td></tr>
+    <tr><td>Cal.com, Inc. (Cal.eu)</td><td>Időpontfoglalás</td><td>EU</td></tr>
+    <tr><td>Google Ireland Ltd. (Google Workspace)</td><td>Email levelezés</td><td>EU, USA</td></tr>
+    <tr><td>KBOSS.hu Kft. (Számlázz.hu)</td><td>Számlázás</td><td>Magyarország</td></tr>
+    <tr><td>Fontshare (Indian Type Foundry), Google Ireland Ltd., Cloudinary Ltd., Shopify</td><td>Betűtípusok és képek kiszolgálása</td><td>India, EU, USA</td></tr>
+  </table></div>
+
+  <h2 id="eu-kivul">7. Adattovábbítás az EU-n kívülre</h2>
+  <p>Néhány szolgáltatónk az EU-n kívül, az Egyesült Államokban vagy Indiában is kezel adatot. Az Egyesült Államokba a továbbítás az EU–USA adatvédelmi keretrendszer (Data Privacy Framework) alapján történik, ha a szolgáltató tanúsítvánnyal rendelkezik. Minden más esetben az Európai Bizottság által elfogadott általános szerződési feltételek (GDPR 46. cikk (2) c)) biztosítják az adatok védelmét.</p>
+
+  <h2 id="ugyfelmunka">8. Ha az ügyfeleink áruházában dolgozunk</h2>
+  <p>Amikor egy ügyfelünk Shopify áruházában, hirdetési fiókjában vagy email rendszerében dolgozunk, az ott található vásárlói adatokat nem a saját célunkra kezeljük, hanem az ügyfél megbízásából, adatfeldolgozóként (GDPR 28. cikk). Ezekre az ügyfél adatkezelési tájékoztatója és a vele kötött adatfeldolgozási megállapodás vonatkozik, nem ez a tájékoztató.</p>
+
+  <h2 id="biztonsag">9. Adatbiztonság</h2>
+  <ul>
+    <li>A weboldal kizárólag titkosított (HTTPS) kapcsolaton érhető el.</li>
+    <li>Minden fiókunkon kétlépcsős azonosítást használunk.</li>
+    <li>Az adatokhoz csak az fér hozzá, akinek a munkájához szüksége van rá.</li>
+    <li>Csak olyan szolgáltatót választunk, amely megfelelő biztonsági garanciákat vállal.</li>
+  </ul>
+
+  <h2 id="jogok">10. A jogaid</h2>
+  <ul>
+    <li><strong>Hozzáférés:</strong> megkérdezheted, milyen adatot kezelünk rólad, és másolatot kérhetsz (GDPR 15. cikk).</li>
+    <li><strong>Helyesbítés:</strong> kérheted a pontatlan adat javítását (16. cikk).</li>
+    <li><strong>Törlés:</strong> kérheted az adataid törlését, ha nincs már jogalap a kezelésükre (17. cikk).</li>
+    <li><strong>Korlátozás:</strong> kérheted, hogy egy ideig csak tároljuk, de ne használjuk az adataidat (18. cikk).</li>
+    <li><strong>Adathordozhatóság:</strong> géppel olvasható formában megkaphatod az általad megadott adatokat (20. cikk).</li>
+    <li><strong>Tiltakozás:</strong> tiltakozhatsz a jogos érdeken alapuló adatkezelés ellen (21. cikk).</li>
+    <li><strong>Hozzájárulás visszavonása:</strong> bármikor visszavonhatod. Ez nem érinti a korábbi adatkezelés jogszerűségét (7. cikk (3)).</li>
+  </ul>
+  <p>Kérésedet az <a href="mailto:adatvedelem@kliks.hu">adatvedelem@kliks.hu</a> címre küldd. Legkésőbb egy hónapon belül válaszolunk. Ezt indokolt esetben, például összetett kérésnél, további két hónappal meghosszabbíthatjuk, erről időben tájékoztatunk. Az ügyintézés ingyenes.</p>
+
+  <h2 id="jogorvoslat">11. Panasz és jogorvoslat</h2>
+  <p>Ha úgy érzed, hogy nem megfelelően kezeltük az adataidat, kérjük, először írj nekünk, hátha gyorsan rendezni tudjuk. Panaszt tehetsz a Nemzeti Adatvédelmi és Információszabadság Hatóságnál is:</p>
+  <div class="box">
+    <p><strong>Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</strong></p>
+    <p>Cím: 1055 Budapest, Falk Miksa utca 9–11.</p>
+    <p>Postacím: 1363 Budapest, Pf. 9.</p>
+    <p>Telefon: +36 1 391 1400</p>
+    <p>Email: ugyfelszolgalat@naih.hu · Weboldal: <a href="https://naih.hu" target="_blank" rel="noopener">naih.hu</a></p>
+  </div>
+  <p>Bírósághoz is fordulhatsz. A per a lakóhelyed vagy tartózkodási helyed szerinti törvényszék előtt is megindítható.</p>
+
+  <h2 id="incidens">12. Adatvédelmi incidens</h2>
+  <p>Ha az adataidat érintő incidens történik, azt nyilvántartjuk, és 72 órán belül bejelentjük a NAIH-nak, kivéve, ha valószínűleg nem jár kockázattal. Ha az incidens magas kockázattal jár rád nézve, téged is késedelem nélkül értesítünk (GDPR 33–34. cikk).</p>
+
+  <h2 id="modositas">13. A tájékoztató módosítása</h2>
+  <p>Ha változik, hogyan kezeljük az adatokat (például új szolgáltatót kezdünk használni), frissítjük ezt a tájékoztatót, és az oldal tetején jelezzük az új hatálybalépési dátumot és verziószámot.</p>
+</main>
+
+<footer>
+  &copy; 2026 Kliks Digital · <a href="/">Vissza a főoldalra</a> · <a href="#" data-cookie-settings>Süti beállítások</a>
+</footer>
+
+</body>
+</html>
