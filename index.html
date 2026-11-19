@@ -1457,8 +1457,8 @@
     <span class="section-label fade-up">Miért a KLIKS</span>
     <div class="about-grid">
       <div class="about-photo-wrap fade-up">
-        <video id="founderVideo" src="/img/founder.mp4" poster="/img/founder-poster.webp" autoplay muted loop playsinline aria-label="Nagy Ádám, a KLIKS alapítója"></video>
-        <script>if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { var fv = document.getElementById('founderVideo'); fv.removeAttribute('autoplay'); fv.pause(); }</script>
+        <video id="founderVideo" src="/img/founder.mp4" poster="/img/founder-poster.webp" muted loop playsinline role="img" aria-label="Nagy Ádám, a KLIKS alapítója"></video>
+        <script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) { var fv = document.getElementById('founderVideo'); fv.muted = true; fv.play().catch(function () {}); }</script>
         <div class="about-photo-label">
           <strong>Nagy Ádám</strong>
           <span>A KLIKS alapítója</span>
