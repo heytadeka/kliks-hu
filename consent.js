@@ -1,5 +1,5 @@
 (function () {
-  var PIXEL_ID = '1875112903440305';
+  var PIXEL_ID = '1884393622726135';
   var GA_ID = 'G-5PNEDQDX07';
   var KEY = 'kliks_consent_v2';
   var LEGACY_KEY = 'kliks_consent';
@@ -64,14 +64,21 @@
     n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);
     }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    // No automatic button-click events and no page metadata: only the events sent below.
+    fbq('set', 'autoConfig', false, PIXEL_ID);
     fbq('init', PIXEL_ID);
     fbq('track', 'PageView');
     flush();
   }
 
   // Meta events wait in window.kliksQ until marketing consent is given.
+  // Each entry is [eventName, params]; params never hold personal data.
   function flush() {
-    while (queue.length) fbq('track', queue.shift());
+    while (queue.length) {
+      var ev = queue.shift();
+      if (typeof ev === 'string') ev = [ev];
+      fbq('track', ev[0], ev[1] || {});
+    }
   }
   queue.push = function () {
     Array.prototype.push.apply(queue, arguments);

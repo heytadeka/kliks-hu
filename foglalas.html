@@ -526,6 +526,7 @@
                 event_label: "Strategy Call Booking"
               });
             }
+            (window.kliksQ = window.kliksQ || []).push(["Schedule", { content_name: "strategy_call" }]);
           }
           Cal.ns["30min"]("on", { action: "bookingSuccessfulV2", callback: onBooked });
           Cal.ns["30min"]("on", { action: "bookingSuccessful", callback: onBooked });

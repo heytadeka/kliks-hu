@@ -13,13 +13,14 @@
 <meta property="og:image" content="https://kliks.hu/img/kliks-monogram.png">
 <link href="/fonts/fontshare.css" rel="stylesheet">
 
-<script>window.kliksQ = window.kliksQ || []; kliksQ.push('Lead');</script>
 <script>
 try {
   var lead = sessionStorage.getItem('kliks_lead');
   sessionStorage.removeItem('kliks_lead');
   var ga = window.kliksGaQ = window.kliksGaQ || [];
+  var meta = window.kliksQ = window.kliksQ || [];
   if (lead === 'contact' || lead === 'contact+newsletter') {
+    meta.push(['Lead', { content_name: 'contact' }]);
     ga.push(['generate_lead', {
       form_id: 'contact',
       event_category: 'Contact',
@@ -28,6 +29,7 @@ try {
   }
   if (lead === 'contact+newsletter') {
     ga.push(['sign_up', { method: 'newsletter' }]);
+    meta.push(['Subscribe']);
   }
 } catch (e) {}
 </script>
