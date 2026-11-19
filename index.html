@@ -1864,15 +1864,12 @@
       return;
     }
 
-    var tracking = [sendToKlaviyo(lead)];
-    if (lead.newsletter && window.kliksEvent) {
-      tracking.push(window.kliksEvent('generate_lead', {
-        form_id: 'newsletter',
-        event_category: 'Newsletter',
-        event_label: 'Newsletter Signup'
-      }));
+    // GA4 holds events for a few seconds before sending, so the redirect would drop
+    // this one; /koszonjuk sends it instead (once, then clears the flag).
+    if (lead.newsletter) {
+      try { sessionStorage.setItem('kliks_lead', 'newsletter'); } catch (e) {}
     }
-    await Promise.all(tracking);
+    await sendToKlaviyo(lead);
     window.location.href = '/koszonjuk';
   });
 </script>

@@ -41,7 +41,20 @@
     document.head.appendChild(s);
     gtag('js', new Date());
     gtag('config', GA_ID);
+    flushGa();
   }
+
+  // GA4 events queued before this script ran (e.g. on /koszonjuk): sent once statistics
+  // consent is given on this page, dropped otherwise.
+  var gaQueue = window.kliksGaQ = window.kliksGaQ || [];
+  function flushGa() {
+    while (gaQueue.length) { var ev = gaQueue.shift(); window.kliksEvent(ev[0], ev[1]); }
+  }
+  gaQueue.push = function () {
+    Array.prototype.push.apply(gaQueue, arguments);
+    if (gaLoaded) flushGa();
+    return gaQueue.length;
+  };
 
   function loadPixel() {
     if (pixelLoaded) return;

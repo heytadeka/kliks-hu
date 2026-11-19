@@ -16,6 +16,19 @@
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 
 <script>window.kliksQ = window.kliksQ || []; kliksQ.push('Lead');</script>
+<script>
+try {
+  var lead = sessionStorage.getItem('kliks_lead');
+  sessionStorage.removeItem('kliks_lead');
+  if (lead === 'newsletter') {
+    (window.kliksGaQ = window.kliksGaQ || []).push(['generate_lead', {
+      form_id: 'newsletter',
+      event_category: 'Newsletter',
+      event_label: 'Newsletter Signup'
+    }]);
+  }
+} catch (e) {}
+</script>
 <script src="/consent.js" defer></script>
 
 <style>
