@@ -22,16 +22,29 @@ const FAMILIES = [
 
 mkdirSync(OUT, { recursive: true });
 const faces = [];
+// Fontshare's CDN sometimes answers with a cached response for a different family
+// mix, so keep only faces of the requested family and retry with a cache-buster.
+async function fontFaces(slug, name, weights) {
+  for (let attempt = 0; attempt < 4; attempt++) {
+    const bust = attempt ? `&cb=${Date.now()}${attempt}` : '';
+    const res = await fetch(`https://api.fontshare.com/v2/css?f[]=${slug}@${weights.join(',')}&display=swap${bust}`);
+    if (!res.ok) throw new Error(`Fontshare CSS for ${slug}: HTTP ${res.status}`);
+    const blocks = ((await res.text()).match(/@font-face\s*{[^}]*}/g) || [])
+      .filter((b) => b.match(/font-family:\s*'([^']+)'/)?.[1] === name);
+    const found = new Set(blocks.map((b) => Number(b.match(/font-weight:\s*(\d+)/)?.[1])));
+    if (weights.every((w) => found.has(w))) return blocks;
+  }
+  throw new Error(`${name}: Fontshare did not return all weights ${weights.join(',')}`);
+}
+
 for (const [slug, name, weights] of FAMILIES) {
-  // one family per request: Fontshare can return a cached single-family answer otherwise
-  const res = await fetch(`https://api.fontshare.com/v2/css?f[]=${slug}@${weights.join(',')}&display=swap`);
-  if (!res.ok) throw new Error(`Fontshare CSS for ${slug}: HTTP ${res.status}`);
-  const css = await res.text();
-  for (const block of css.match(/@font-face\s*{[^}]*}/g) || []) {
+  const done = new Set();
+  for (const block of await fontFaces(slug, name, weights)) {
     const weight = Number(block.match(/font-weight:\s*(\d+)/)?.[1]);
     const style = block.match(/font-style:\s*(\w+)/)?.[1] || 'normal';
     const woff2 = block.match(/url\('([^']+\.woff2)'\)/)?.[1];
-    if (!weights.includes(weight) || style !== 'normal' || !woff2) continue;
+    if (!weights.includes(weight) || style !== 'normal' || !woff2 || done.has(weight)) continue;
+    done.add(weight);
     const file = `${slug}-${weight}.woff2`;
     const font = await fetch(woff2.startsWith('//') ? 'https:' + woff2 : woff2);
     if (!font.ok) throw new Error(`${file}: HTTP ${font.status}`);
