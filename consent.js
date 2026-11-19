@@ -1,5 +1,5 @@
 (function () {
-  var PIXEL_ID = '1884393622726135';
+  var PIXEL_ID = '1135742665532055';
   var GA_ID = 'G-5PNEDQDX07';
   var KEY = 'kliks_consent_v2';
   var LEGACY_KEY = 'kliks_consent';
