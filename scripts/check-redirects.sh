@@ -55,7 +55,9 @@ echo "== real 404 status with the Hungarian page"
 for p in /nincs-ilyen-oldal /aszf /kliks-adatvedelem-DRAFT; do check 404 "$p" ""; done
 
 echo "== repo files are not published (only dist/ is served)"
-for p in /scripts/ /scripts/build.mjs /scripts/fetch-fontshare.mjs /docs/ /docs/seo.md /vercel.json /.gitignore /adam-ads.gif /case-tapetabarlang.jpg; do check 404 "$p" ""; done
+for p in /scripts /scripts/build.mjs /scripts/fetch-fontshare.mjs /docs /docs/seo.md /vercel.json /.gitignore /adam-ads.gif /case-tapetabarlang.jpg; do check 404 "$p" ""; done
+# with a trailing slash they redirect to the slashless URL first, which is a 404
+for pair in "/scripts/:/scripts" "/docs/:/docs"; do check 308 "${pair%%:*}" "${pair#*:}"; done
 for p in /img/case-tapetabarlang.jpg /img/founder.mp4 /fonts/fontshare.css /fonts/fontshare/satoshi-400.woff2; do check 200 "$p" ""; done
 has /nincs-ilyen-oldal "Ez az oldal nem található"
 has /nincs-ilyen-oldal '<meta name="robots" content="noindex">'
