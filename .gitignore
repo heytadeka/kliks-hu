@@ -1,0 +1,5 @@
+# Fontshare fonts are downloaded at build time (scripts/fetch-fontshare.mjs); their
+# licence does not allow publishing them through a public repository.
+fonts/fontshare/
+fonts/fontshare.css
+dist/

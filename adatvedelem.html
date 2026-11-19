@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="https://kliks.com.au/kliks-monogram-3A-solid.png">
-  <title>Adatkezelési tájékoztató – KLIKS</title>
+  <link rel="icon" type="image/png" href="/img/kliks-monogram-180.png">
+  <title>Adatkezelési tájékoztató | Kliks Digital</title>
   <meta name="description" content="Milyen adatokat kezelünk, miért, mennyi ideig, és milyen jogaid vannak.">
   <link rel="canonical" href="https://kliks.hu/adatvedelem">
-  <link rel="preconnect" href="https://api.fontshare.com">
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet">
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Adatkezelési tájékoztató | Kliks Digital">
+  <meta property="og:description" content="Milyen adatokat kezelünk, miért, mennyi ideig, és milyen jogaid vannak.">
+  <meta property="og:url" content="https://kliks.hu/adatvedelem">
+  <meta property="og:image" content="https://kliks.hu/img/kliks-monogram.png">
+  <link href="/fonts/fontshare.css" rel="stylesheet">
   <style>
     :root {
       --orange: #ff4315;
@@ -81,7 +84,7 @@
 <main>
   <span class="label">Adatvédelem</span>
   <h1>Adatkezelési tájékoztató</h1>
-  <p class="meta">Hatályos: 2026. november 10. · Verzió: 1.0</p>
+  <p class="meta">Hatályos: 2026. november 20. · Verzió: 1.1</p>
 
   <div class="summary">
     <p><strong>Röviden:</strong> csak azokat az adatokat kérjük el, amik ahhoz kellenek, hogy válaszolni tudjunk neked, és ha együtt dolgozunk, a munkát el tudjuk végezni. Nem adjuk el őket, és nem adjuk tovább senkinek, aki ehhez nem szükséges. Hírlevelet csak akkor küldünk, ha kérted. Bármikor megkérdezheted, mit tárolunk rólad, és kérheted a törlését.</p>
@@ -91,7 +94,7 @@
     <li><a href="#adatkezelo">Ki kezeli az adataidat</a></li>
     <li><a href="#jogszabalyok">Jogszabályi háttér</a></li>
     <li><a href="#adatkezelesek">Milyen adatot, miért és meddig</a></li>
-    <li><a href="#meres">Mérés és hirdetés (Meta Pixel)</a></li>
+    <li><a href="#meres">Mérés és hirdetés (Google Analytics, Meta Pixel)</a></li>
     <li><a href="#sutik">Sütik</a></li>
     <li><a href="#adatfeldolgozok">Adatfeldolgozók</a></li>
     <li><a href="#eu-kivul">Adattovábbítás az EU-n kívülre</a></li>
@@ -118,7 +121,6 @@
   <ul>
     <li>Az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR)</li>
     <li>2011. évi CXII. törvény az információs önrendelkezési jogról és az információszabadságról (Infotv.)</li>
-    <li>2001. évi CVIII. törvény az elektronikus kereskedelmi szolgáltatásokról (Ekertv.)</li>
     <li>2008. évi XLVIII. törvény a gazdasági reklámtevékenységről (Grt.)</li>
     <li>2000. évi C. törvény a számvitelről (Számv. tv.)</li>
     <li>2013. évi V. törvény a Polgári Törvénykönyvről (Ptk.)</li>
@@ -151,7 +153,7 @@
     <dt>Adatok</dt><dd>Név, email cím, a választott időpont, és amit a foglaláskor megadsz.</dd>
     <dt>Jogalap</dt><dd>A te kérésedre, szerződéskötést megelőzően tett lépések (GDPR 6. cikk (1) b)).</dd>
     <dt>Megőrzés</dt><dd>Ha nem lesz belőle együttműködés, a beszélgetéstől számított 1 évig.</dd>
-    <dt>Ki fér hozzá</dt><dd>A KLIKS és a Cal.com (Cal.eu) mint adatfeldolgozó.</dd>
+    <dt>Ki fér hozzá</dt><dd>A KLIKS és a Cal.com, Inc. (Cal.eu) mint adatfeldolgozó. A naptár csak akkor töltődik be, ha a /foglalas oldalon az „Időpont foglalása” gombra kattintasz. Ekkor a Cal.eu megkapja az IP-címedet és a böngésződ adatait, a foglaláskor pedig a nevedet, az email címedet, a választott időpontot és amit a foglaláskor megadsz.</dd>
   </dl></div>
 
   <h3>3.4 Ügyfeleink kapcsolattartói</h3>
@@ -178,17 +180,24 @@
     <dt>Adatok</dt><dd>IP-cím, a böngésző és az eszköz típusa, a megnyitott oldal, az időpont.</dd>
     <dt>Jogalap</dt><dd>Jogos érdek a weboldal biztonságos üzemeltetéséhez (GDPR 6. cikk (1) f)).</dd>
     <dt>Megőrzés</dt><dd>A tárhelyszolgáltató (Vercel) naplózási ideje szerint, jellemzően néhány nap.</dd>
-    <dt>Ki fér hozzá</dt><dd>A Vercel mint adatfeldolgozó. Az oldal betűtípusai és képei külső szolgáltatóktól töltődnek be (Fontshare, Google Fonts, Cloudinary, Shopify), ezért ők is megkapják az IP-címedet.</dd>
+    <dt>Ki fér hozzá</dt><dd>A Vercel mint adatfeldolgozó. Az oldal betűtípusai és képei a saját tárhelyünkről töltődnek be, így ezekhez külső szolgáltató nem kapja meg az IP-címedet.</dd>
   </dl></div>
 
   <h3>3.7 Közösségi oldalaink</h3>
   <p>Az Instagram és a TikTok oldalainkon a platform szabályai szerint kezeljük a hozzászólásokat és üzeneteket. Ezekért az adatkezelésekért a platformokkal közösen felelünk (GDPR 26. cikk). A platformok saját tájékoztatói: <a href="https://privacycenter.instagram.com/policy" target="_blank" rel="noopener">Instagram</a>, <a href="https://www.tiktok.com/legal/privacy-policy-eea" target="_blank" rel="noopener">TikTok</a>.</p>
 
-  <h2 id="meres">4. Mérés és hirdetés (Meta Pixel)</h2>
+  <h2 id="meres">4. Mérés és hirdetés (Google Analytics, Meta Pixel)</h2>
+  <p><strong>Google Analytics.</strong> Ha engedélyezed a statisztikát, a Google Analytics 4 segítségével megnézzük, melyik oldalakat olvassák, mennyi ideig, és honnan érkeznek a látogatók (például keresőből vagy hirdetésből). Ebből látjuk, mi működik az oldalon, és mit kell javítani.</p>
+  <div class="activity"><dl>
+    <dt>Adatok</dt><dd>A megnyitott oldalak, a hivatkozó oldal, az eszköz, a böngésző és az operációs rendszer típusa, a képernyőméret, a nyelv, a hozzávetőleges helyadat (ország, város) és egy véletlenszerű azonosító a Google sütijeiben. Az IP-címet a Google Analytics nem tárolja. Nevet, email címet vagy más, közvetlenül azonosító adatot nem küldünk a Google-nek.</dd>
+    <dt>Jogalap</dt><dd>A hozzájárulásod, amit a süti beállításoknál adhatsz meg vagy vonhatsz vissza (GDPR 6. cikk (1) a)).</dd>
+    <dt>Ki fér hozzá</dt><dd>A KLIKS és a Google Ireland Ltd. mint adatfeldolgozó. Az adatokat a Google az EU-ban és az Egyesült Államokban is kezelheti, az EU–USA adatvédelmi keretrendszer alapján.</dd>
+    <dt>Megőrzés</dt><dd>A Google Analytics az adatokat 2 hónapig őrzi meg, a sütik legfeljebb 2 évig maradnak a böngésződben.</dd>
+  </dl></div>
   <p>A weboldalon a Meta Pixel segítségével mérjük, hogy a hirdetéseinkből hányan látogatnak el hozzánk, és hányan írnak nekünk. Ez alapján tudjuk javítani a hirdetéseinket, és megjeleníteni őket azoknak, akik már jártak nálunk.</p>
   <div class="activity"><dl>
     <dt>Adatok</dt><dd>A meglátogatott oldalak, a kattintások, az eszköz és a böngésző adatai, az IP-cím és a Meta sütijei.</dd>
-    <dt>Jogalap</dt><dd>A hozzájárulásod, amit a süti beállításoknál adhatsz meg vagy vonhatsz vissza (GDPR 6. cikk (1) a), Ekertv. 13/A. §).</dd>
+    <dt>Jogalap</dt><dd>A hozzájárulásod, amit a süti beállításoknál adhatsz meg vagy vonhatsz vissza (GDPR 6. cikk (1) a)).</dd>
     <dt>Felelősség</dt><dd>Az adatok gyűjtéséért és a Metának való továbbításáért a KLIKS és a Meta Platforms Ireland Ltd. közösen felel (GDPR 26. cikk). A további feldolgozásért a Meta önállóan felel.</dd>
     <dt>Megőrzés</dt><dd>A Meta sütijei legfeljebb 90 napig maradnak a böngésződben.</dd>
   </dl></div>
@@ -197,7 +206,9 @@
   <p>A weboldal működéséhez szükséges sütik a jogos érdekünk alapján működnek. Mérési és marketing sütit csak akkor használunk, ha ehhez hozzájárulsz. Az oldal első megnyitásakor egy sávban dönthetsz róla, és a döntésedet bármikor megváltoztathatod az oldal alján lévő „Süti beállítások” linkkel.</p>
   <div class="table-wrap"><table>
     <tr><th>Név</th><th>Mire való</th><th>Típus</th><th>Meddig marad</th></tr>
-    <tr><td>kliks_consent</td><td>Megjegyzi, hogy elfogadtad vagy elutasítottad a mérést. A böngésződben tároljuk, nem küldjük el sehova.</td><td>Szükséges</td><td>Amíg nem törlöd</td></tr>
+    <tr><td>kliks_consent_v2</td><td>Megjegyzi, mit engedélyeztél a statisztikára és a hirdetésmérésre. A böngésződben tároljuk, nem küldjük el sehova.</td><td>Szükséges</td><td>Amíg nem törlöd</td></tr>
+    <tr><td>__cf_bm</td><td>A Cal.eu tárhelyszolgáltatójának (Cloudflare) biztonsági sütije, ami a gépi forgalmat szűri ki. Csak akkor kerül a böngésződbe, ha megnyitod a naptárat.</td><td>Szükséges</td><td>30 perc</td></tr>
+    <tr><td>_ga, _ga_5PNEDQDX07</td><td>A Google Analytics sütijei: megkülönböztetik a látogatókat és a látogatásokat.</td><td>Statisztika, csak hozzájárulással</td><td>2 év</td></tr>
     <tr><td>_fbp, _fbc</td><td>A Meta Pixel sütijei: a hirdetések mérése és a remarketing.</td><td>Marketing, csak hozzájárulással</td><td>90 nap</td></tr>
   </table></div>
 
@@ -209,9 +220,8 @@
     <tr><td>Web3Creative (Web3Forms), India</td><td>A kapcsolatfelvételi űrlap továbbítása emailben</td><td>Több régió (AWS, Cloudflare, Hetzner)</td></tr>
     <tr><td>Klaviyo, Inc.</td><td>Ügyfélkapcsolati nyilvántartás és hírlevél</td><td>USA</td></tr>
     <tr><td>Cal.com, Inc. (Cal.eu)</td><td>Időpontfoglalás</td><td>EU</td></tr>
-    <tr><td>Google Ireland Ltd. (Google Workspace)</td><td>Email levelezés</td><td>EU, USA</td></tr>
+    <tr><td>Google Ireland Ltd. (Google Workspace, Google Analytics)</td><td>Email levelezés, látogatottsági statisztika</td><td>EU, USA</td></tr>
     <tr><td>KBOSS.hu Kft. (Számlázz.hu)</td><td>Számlázás</td><td>Magyarország</td></tr>
-    <tr><td>Fontshare (Indian Type Foundry), Google Ireland Ltd., Cloudinary Ltd., Shopify</td><td>Betűtípusok és képek kiszolgálása</td><td>India, EU, USA</td></tr>
   </table></div>
 
   <h2 id="eu-kivul">7. Adattovábbítás az EU-n kívülre</h2>

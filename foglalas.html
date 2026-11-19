@@ -4,8 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Foglalj időpontot | Kliks Digital</title>
-<link rel="preconnect" href="https://api.fontshare.com">
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<meta name="description" content="30 perc alatt átnézzük, mi okoz most gondot, mivel nem vagy elégedett, és mi az, ami már jól működik.">
+<link rel="canonical" href="https://kliks.hu/foglalas">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Foglalj időpontot | Kliks Digital">
+<meta property="og:description" content="30 perc alatt átnézzük, mi okoz most gondot, mivel nem vagy elégedett, és mi az, ami már jól működik.">
+<meta property="og:url" content="https://kliks.hu/foglalas">
+<meta property="og:image" content="https://kliks.hu/img/kliks-monogram.png">
+<link href="/fonts/fontshare.css" rel="stylesheet">
 
 <script src="/consent.js" defer></script>
 
@@ -216,6 +222,11 @@
   }
 
   /* ── CAL SECTION ── */
+  .cal-consent { text-align: center; padding: 56px 24px; }
+  .cal-open { background: var(--orange); color: #ffffff; border: none; border-radius: 100px; padding: 16px 36px; font: 600 16px 'Satoshi', sans-serif; cursor: pointer; transition: background 0.2s ease; }
+  .cal-open:hover { background: var(--orange-dark); }
+  .cal-open:focus-visible { outline: 2px solid #ffffff; outline-offset: 3px; }
+  .cal-consent p { margin: 16px auto 0; max-width: 420px; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.55); }
   .cal-section {
     padding: 48px 0 100px;
     position: relative;
@@ -451,48 +462,76 @@
 <div class="cal-section">
   <div class="cal-container">
     <div class="cal-card">
-      <div id="cal-booking" style="width:100%;min-height:600px;"></div>
+      <div class="cal-consent" id="cal-consent">
+        <button type="button" class="cal-open" id="cal-open">Időpont foglalása</button>
+        <p>A naptárat a Cal.eu biztosítja, és csak akkor töltődik be, ha a gombra kattintasz.</p>
+      </div>
+      <div id="cal-booking" style="width:100%;"></div>
       <script type="text/javascript">
-        (function (C, A, L) {
-          let p = function (a, ar) { a.q.push(ar); };
-          let d = C.document;
-          C.Cal = C.Cal || function () {
-            let cal = C.Cal;
-            let ar = arguments;
-            if (!cal.loaded) {
-              cal.ns = {};
-              cal.q = cal.q || [];
-              d.head.appendChild(d.createElement("script")).src = A;
-              cal.loaded = true;
-            }
-            if (ar[0] === L) {
-              const api = function () { p(api, arguments); };
-              const namespace = ar[1];
-              api.q = api.q || [];
-              if (typeof namespace === "string") {
-                cal.ns[namespace] = cal.ns[namespace] || api;
-                p(cal.ns[namespace], ar);
-                p(cal, ["-", namespace, api]);
-              } else {
-                p(cal, ar);
+        // Nothing from Cal.eu loads until the visitor asks for the calendar.
+        function loadCal() {
+          document.getElementById("cal-consent").remove();
+          document.getElementById("cal-booking").style.minHeight = "600px";
+          (function (C, A, L) {
+            let p = function (a, ar) { a.q.push(ar); };
+            let d = C.document;
+            C.Cal = C.Cal || function () {
+              let cal = C.Cal;
+              let ar = arguments;
+              if (!cal.loaded) {
+                cal.ns = {};
+                cal.q = cal.q || [];
+                d.head.appendChild(d.createElement("script")).src = A;
+                cal.loaded = true;
               }
-              return;
-            }
-            p(cal, ar);
-          };
-        })(window, "https://app.cal.eu/embed/embed.js", "init");
+              if (ar[0] === L) {
+                const api = function () { p(api, arguments); };
+                const namespace = ar[1];
+                api.q = api.q || [];
+                if (typeof namespace === "string") {
+                  cal.ns[namespace] = cal.ns[namespace] || api;
+                  p(cal.ns[namespace], ar);
+                  p(cal, ["-", namespace, api]);
+                } else {
+                  p(cal, ar);
+                }
+                return;
+              }
+              p(cal, ar);
+            };
+          })(window, "https://app.cal.eu/embed/embed.js", "init");
 
-        Cal("init", "30min", { origin: "https://cal.eu" });
-        Cal.ns["30min"]("inline", {
-          elementOrSelector: "#cal-booking",
-          calLink: "heytadeka/30min",
-          layout: "month_view",
-        });
-        Cal.ns["30min"]("ui", {
-          styles: { branding: { brandColor: "#644bff" } },
-          hideEventTypeDetails: false,
-          layout: "month_view",
-        });
+          Cal("init", "30min", { origin: "https://cal.eu" });
+          Cal.ns["30min"]("inline", {
+            elementOrSelector: "#cal-booking",
+            calLink: "heytadeka/30min",
+            layout: "month_view",
+          });
+          Cal.ns["30min"]("ui", {
+            styles: { branding: { brandColor: "#644bff" } },
+            hideEventTypeDetails: false,
+            layout: "month_view",
+          });
+
+          // Cal.eu fires both the current and the legacy event for one booking; count it once.
+          // The event data holds the attendee's details, so none of it is passed on.
+          var lastBooking = 0;
+          function onBooked() {
+            if (Date.now() - lastBooking < 5000) return;
+            lastBooking = Date.now();
+            if (window.kliksEvent) {
+              window.kliksEvent("generate_lead", {
+                form_id: "strategy_call",
+                event_category: "Strategy Call",
+                event_label: "Strategy Call Booking"
+              });
+            }
+            (window.kliksQ = window.kliksQ || []).push(["Schedule", { content_name: "strategy_call" }]);
+          }
+          Cal.ns["30min"]("on", { action: "bookingSuccessfulV2", callback: onBooked });
+          Cal.ns["30min"]("on", { action: "bookingSuccessful", callback: onBooked });
+        }
+        document.getElementById("cal-open").addEventListener("click", loadCal);
       </script>
     </div>
   </div>
