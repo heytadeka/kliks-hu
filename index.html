@@ -1865,10 +1865,8 @@
     }
 
     // GA4 holds events for a few seconds before sending, so the redirect would drop
-    // this one; /koszonjuk sends it instead (once, then clears the flag).
-    if (lead.newsletter) {
-      try { sessionStorage.setItem('kliks_lead', 'newsletter'); } catch (e) {}
-    }
+    // them; /koszonjuk sends generate_lead (and sign_up if ticked) once, then clears the flag.
+    try { sessionStorage.setItem('kliks_lead', lead.newsletter ? 'contact+newsletter' : 'contact'); } catch (e) {}
     await sendToKlaviyo(lead);
     window.location.href = '/koszonjuk';
   });

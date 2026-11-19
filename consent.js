@@ -144,8 +144,10 @@
       document.head.appendChild(st);
     }
     var previous = getChoice();
-    var legacyMarketing = read(LEGACY_KEY) === 'granted';
-    var pre = previous || { analytics: false, marketing: legacyMarketing };
+    // Boxes start unticked; they only reflect a saved choice when the settings are reopened.
+    // `pre` is what is running now, so declining can switch off an earlier Meta consent.
+    var shown = previous || { analytics: false, marketing: false };
+    var pre = previous || { analytics: false, marketing: read(LEGACY_KEY) === 'granted' };
     var box = document.createElement('div');
     box.id = 'kliks-consent';
     box.setAttribute('role', 'dialog');
@@ -153,9 +155,9 @@
     box.innerHTML =
       '<p><strong>Mérhetjük a látogatásod?</strong> A weboldal működéséhez szükséges tárolás mindig be van kapcsolva. ' +
       'Mérni csak azzal tudunk, amit itt engedélyezel. Részletek az <a href="/adatvedelem#sutik">adatkezelési tájékoztatóban</a>.</p>' +
-      '<label><input type="checkbox" data-cat="analytics"' + (pre.analytics ? ' checked' : '') + '>' +
+      '<label><input type="checkbox" data-cat="analytics"' + (shown.analytics ? ' checked' : '') + '>' +
       '<span><strong>Statisztika</strong> (Google Analytics): megnézzük, melyik oldalakat olvassák, és honnan érkeznek a látogatók.</span></label>' +
-      '<label><input type="checkbox" data-cat="marketing"' + (pre.marketing ? ' checked' : '') + '>' +
+      '<label><input type="checkbox" data-cat="marketing"' + (shown.marketing ? ' checked' : '') + '>' +
       '<span><strong>Hirdetésmérés</strong> (Meta Pixel): megnézzük, hogy a hirdetéseinkből hányan jutnak el hozzánk.</span></label>' +
       '<div class="kc-row">' +
       '<button type="button" data-choice="none">Mindet elutasítom</button>' +

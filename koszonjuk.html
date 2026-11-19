@@ -20,12 +20,16 @@
 try {
   var lead = sessionStorage.getItem('kliks_lead');
   sessionStorage.removeItem('kliks_lead');
-  if (lead === 'newsletter') {
-    (window.kliksGaQ = window.kliksGaQ || []).push(['generate_lead', {
-      form_id: 'newsletter',
-      event_category: 'Newsletter',
-      event_label: 'Newsletter Signup'
+  var ga = window.kliksGaQ = window.kliksGaQ || [];
+  if (lead === 'contact' || lead === 'contact+newsletter') {
+    ga.push(['generate_lead', {
+      form_id: 'contact',
+      event_category: 'Contact',
+      event_label: 'Contact Form Submission'
     }]);
+  }
+  if (lead === 'contact+newsletter') {
+    ga.push(['sign_up', { method: 'newsletter' }]);
   }
 } catch (e) {}
 </script>
