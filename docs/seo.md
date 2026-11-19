@@ -16,4 +16,6 @@ node scripts/generate-sitemap.mjs
 CURL=scripts/vercel-curl.sh scripts/check-redirects.sh https://<preview>.vercel.app
 ```
 
-**Fonts.** Space Mono is self-hosted in `fonts/` (SIL OFL 1.1, licence included). Clash Display and Satoshi load from the Fontshare CDN: the ITF Free Font License allows self-hosting but not making the files available through a public repository, and this repository is public.
+**Fonts.** Space Mono is self-hosted in `fonts/` (SIL OFL 1.1, licence included). Clash Display and Satoshi are downloaded from Fontshare at build time (`scripts/fetch-fontshare.mjs`) and served from `/fonts/fontshare/`; they are gitignored because the ITF Free Font License allows self-hosting but not making the files available through a public repository, and this repository is public.
+
+**Build.** Vercel runs `node scripts/build.mjs`, which fetches the Fontshare fonts and copies an explicit allowlist into `dist/`, the only folder served: the six pages (`index`, `esettanulmanyok`, `foglalas`, `koszonjuk`, `adatvedelem`, `404`), `consent.js`, `robots.txt`, `sitemap.xml`, `img/` and `fonts/`. Repo files (`scripts/`, `docs/`, `vercel.json`, `.gitignore`) are not published. A new page or asset folder has to be added to the lists in `scripts/build.mjs`.

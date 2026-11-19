@@ -1,6 +1,6 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "buildCommand": "node scripts/fetch-fontshare.mjs",
-  "outputDirectory": "."
+  "buildCommand": "node scripts/build.mjs",
+  "outputDirectory": "dist"
 }
