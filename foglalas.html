@@ -501,6 +501,23 @@
           hideEventTypeDetails: false,
           layout: "month_view",
         });
+
+        // Cal.eu fires both the current and the legacy event for one booking; count it once.
+        // The event data holds the attendee's details, so none of it is passed on.
+        var lastBooking = 0;
+        function onBooked() {
+          if (Date.now() - lastBooking < 5000) return;
+          lastBooking = Date.now();
+          if (window.kliksEvent) {
+            window.kliksEvent("generate_lead", {
+              form_id: "strategy_call",
+              event_category: "Strategy Call",
+              event_label: "Strategy Call Booking"
+            });
+          }
+        }
+        Cal.ns["30min"]("on", { action: "bookingSuccessfulV2", callback: onBooked });
+        Cal.ns["30min"]("on", { action: "bookingSuccessful", callback: onBooked });
       </script>
     </div>
   </div>

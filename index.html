@@ -1864,7 +1864,15 @@
       return;
     }
 
-    await sendToKlaviyo(lead);
+    var tracking = [sendToKlaviyo(lead)];
+    if (lead.newsletter && window.kliksEvent) {
+      tracking.push(window.kliksEvent('generate_lead', {
+        form_id: 'newsletter',
+        event_category: 'Newsletter',
+        event_label: 'Newsletter Signup'
+      }));
+    }
+    await Promise.all(tracking);
     window.location.href = '/koszonjuk';
   });
 </script>
