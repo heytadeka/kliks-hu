@@ -199,6 +199,7 @@
         "details";
       gap: 32px;
     }
+    .case-grid[data-visual="none"] { grid-template-areas: "head" "details"; }
     .case-head { grid-area: head; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
     .case-visual { grid-area: visual; min-width: 0; position: relative; isolation: isolate; }
     .case-details { grid-area: details; display: flex; flex-direction: column; align-items: flex-start; gap: 28px; min-width: 0; }
@@ -374,6 +375,10 @@
           "visual head"
           "visual details";
       }
+      .case-grid[data-visual="none"] {
+        grid-template-rows: auto;
+        grid-template-areas: "head details";
+      }
       .case-visual { align-self: center; }
     }
 
@@ -535,6 +540,36 @@
               <span class="tag">Shopify fejlesztés</span><span class="tag">Landing oldalak</span><span class="tag">Arculatváltás</span><span class="tag">Tartalomgyártás</span><span class="tag">Meta és Google Ads</span>
             </div>
             <a class="link-btn" href="https://ohmydays.com.au" target="_blank" rel="noopener noreferrer"><span>ohmydays.com.au megnyitása</span><span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" width="12" height="12"><path d="M4 12L12 4M5.5 4H12v6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- 04 · The Copper Mill -->
+    <div class="reveal">
+      <article class="case" id="the-copper-mill">
+        <div class="case-meta"><span class="kicker">04 &middot; Ügyfél</span><span>Egyedi fejlesztés</span></div>
+        <div class="rule"></div>
+        <div class="case-grid" data-visual="none">
+          <div class="case-head">
+            <div class="case-logo"><img src="/img/logos/copper-mill-logo.png" alt="The Copper Mill logo" width="624" height="468" loading="lazy" decoding="async" style="height:110px;filter:none;opacity:1;"></div>
+            <h2 class="case-title">The Copper Mill</h2>
+          </div>
+          <div class="case-details">
+            <dl class="beats">
+              <div class="beat">
+                <dt>Mi történt</dt>
+                <dd>A Copper Mill egy sydney-i kávézó, a répatortájukról pedig az egész város beszél. Mindenki ezt a tortát akarta, egy kávézó viszont nincs berendezkedve arra, hogy mellette házhoz is szállítson.</dd>
+              </div>
+              <div class="beat">
+                <dt>Mit változtattunk</dt>
+                <dd>Egy teljesen egyedi Shopify webshopot és egy egyedi Shopify appot építettünk nekik. Egyetlen pixel sem sablon. Minden szekció a márkához készült, így a webshop elmeséli a történetet: ki Romi, miért csinálja ezt, és mitől más a Copper Mill, mint a többi kávézó. Az app egy szállítási naptár az üzemeltetőnek. Minden rendelés a kiszállítás napja szerint kerül be. Nézhető napra, hétre vagy hónapra, és rendelésszám szerint lehet keresni és szűrni. Nem marad ki egyetlen szállítás sem.</dd>
+              </div>
+              <div class="beat">
+                <dt>Mi lett belőle</dt>
+                <dd>A Copper Mill most már egész Sydney-ben szállítja a répatortáját. A szállítást egyetlen naptárból viszik, a webshop pedig a saját történetüket meséli, nem úgy néz ki, mint a többi. Romi elégedett az eredménnyel.</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </article>
